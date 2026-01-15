@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Mời Đám Cưới - Bùi Thùy Dương & Trần Minh Hiếu | Phong Cách Đông Dương</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Traditional Vietnamese Wedding Palette */
+            --primary-red: #8B1818;
+            --accent-burgundy: #A52A2A;
+            --deep-crimson: #6B1515;
+            --warm-gold: #D4AF37;
+            --cream-white: #F5F1E8;
+            --ivory: #FFFAF6;
+            --soft-beige: #E8DCC8;
+            --dark-accent: #2C1810;
+            --text-dark: #3E3E3E;
+            --text-light: #5C5C5C;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, var(--cream-white) 0%, var(--soft-beige) 50%, #E8DCC8 100%);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        /* Paper texture with subtle traditional patterns */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(139, 24, 24, .02) 2px, rgba(139, 24, 24, .02) 4px),
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(139, 24, 24, .02) 2px, rgba(139, 24, 24, .02) 4px),
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 24, 24, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Ornamental decorative elements and animations */
+        @keyframes float-gentle {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(1deg); }
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slide-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        @keyframes shimmer {
+            0% { text-shadow: 0 0 0px transparent; }
+            50% { text-shadow: 0 0 8px rgba(212, 175, 55, 0.3); }
+            100% { text-shadow: 0 0 0px transparent; }
+        }
+
+        @keyframes envelope-open {
+            0% { transform: rotateX(0deg); opacity: 1; }
+            100% { transform: rotateX(-75deg) translateY(-30px); opacity: 0.9; }
+        }
+
+        @keyframes letter-emerge {
+            0% { transform: translateY(60px); opacity: 0; }
+            50% { opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes seal-break {
+            0% { opacity: 1; transform: scale(1) rotate(0deg); }
+            100% { opacity: 0; transform: scale(0.8) rotate(-30deg); }
+        }
+
+        .ornament {
+            position: fixed;
+            pointer-events: none;
+            font-size: 1.8rem;
+            opacity: 0.35;
+            animation: float-gentle 10s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .ornament-1 { top: 10%; left: 4%; animation-delay: 0s; }
+        .ornament-2 { top: 20%; right: 8%; animation-delay: 2s; }
+        .ornament-3 { bottom: 25%; left: 6%; animation-delay: 3s; }
+        .ornament-4 { bottom: 15%; right: 5%; animation-delay: 1s; }
+
+        /* ========== HERO SECTION - TRADITIONAL ENVELOPE ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 40px 20px;
+            z-index: 10;
+            background: linear-gradient(135deg, rgba(245, 241, 232, 0.95) 0%, rgba(232, 220, 200, 0.92) 100%);
+        }
+
+        .envelope-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            height: 320px;
+            perspective: 1000px;
+        }
+
+        .envelope-card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+        }
+
+        .envelope-card.opened {
+            transform: rotateX(-60deg) rotateZ(5deg);
+        }
+
+        /* Envelope Front - Traditional Red Aesthetic */
+        .envelope-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--accent-burgundy) 100%);
+            border: 4px solid var(--deep-crimson);
+            border-radius: 4px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 20px 60px rgba(44, 24, 16, 0.4),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            z-index: 5;
+            transform-style: preserve-3d;
+        }
+
+        .envelope-seal {
+            width: 80px;
+            height: 80px;
+            border: 3px solid var(--warm-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            animation: pulse-subtle 3s ease-in-out infinite;
+            background: rgba(212, 175, 55, 0.1);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .envelope-text {
+            text-align: center;
+        }
+
+        .envelope-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--cream-white);
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .envelope-text p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Envelope Flap - Deep Red with Gold Accents */
+        .envelope-flap {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(135deg, var(--primary-red), var(--deep-crimson) 100%);
+            border: 4px solid var(--deep-crimson);
+            border-bottom: none;
+            top: 0;
+            left: 0;
+            border-radius: 4px 4px 0 0;
+            transform-origin: top;
+            transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s;
+            z-index: 6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream-white);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .envelope-card.opened .envelope-flap {
+            transform: rotateX(180deg);
+        }
+
+        /* Letter Card - Elegant Cream with Red Accents */
+        .letter-card {
+            position: absolute;
+            width: 90%;
+            height: 85%;
+            background: linear-gradient(135deg, var(--cream-white) 0%, var(--ivory) 100%);
+            border: 3px solid var(--warm-gold);
+            border-radius: 3px;
+            padding: 50px 40px;
+            top: 50%;
+            left: 5%;
+            transform-style: preserve-3d;
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 2;
+            box-shadow: 0 20px 60px rgba(44, 24, 16, 0.2);
+            overflow: hidden;
+        }
+
+        .letter-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(74, 107, 111, 0.03) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .envelope-card.opened .letter-card {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(-20px);
+        }
+
+        .letter-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary-red);
+            padding-bottom: 20px;
+        }
+
+        .letter-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .letter-header p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            color: var(--accent-burgundy);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .letter-content {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .letter-content p {
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            animation: fade-in 1s ease-in 2s forwards;
+            opacity: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .scroll-arrow {
+            display: block;
+            font-size: 1.5rem;
+            animation: float-gentle 1.5s ease-in-out infinite;
+            margin-top: 8px;
+        }
+
+        /* ========== SECTION STYLES ========== */
+        section {
+            padding: 100px 20px;
+            position: relative;
+            z-index: 5;
+        }
+
+        section:nth-child(even) {
+            background: linear-gradient(135deg, rgba(232, 220, 200, 0.3) 0%, rgba(245, 241, 232, 0.5) 100%);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--primary-red);
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            letter-spacing: 1px;
+        }
+
+        .section-title::before {
+            content: '◆';
+            display: block;
+            color: var(--warm-gold);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--warm-gold), transparent);
+            border-radius: 1px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* ========== OUR STORY TIMELINE ========== */
+        .our-story {
+            background: linear-gradient(180deg, rgba(245, 241, 232, 0.3) 0%, rgba(232, 220, 200, 0.2) 100%);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 60px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-red) 0%, var(--warm-gold) 50%, var(--primary-red) 100%);
+            border-radius: 1.5px;
+        }
+
+        .timeline-item {
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: auto;
+            width: 45%;
+            text-align: right;
+            padding-right: 50px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+            margin-right: 0;
+            width: 45%;
+            text-align: left;
+            padding-left: 50px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 18px;
+            height: 18px;
+            background: white;
+            border: 4px solid var(--primary-red);
+            border-radius: 50%;
+            z-index: 10;
+            box-shadow: 0 0 0 3px var(--cream-white);
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 25px 30px;
+            border-radius: 3px;
+            box-shadow: 0 8px 25px rgba(92, 64, 51, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(92, 64, 51, 0.15);
+            border-color: var(--accent-gold);
+        }
+
+        .timeline-content h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-red);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .timeline-content p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* ========== WEDDING DETAILS ========== */
+        .wedding-details {
+            background: linear-gradient(180deg, rgba(232, 220, 200, 0.3) 0%, rgba(245, 241, 232, 0.2) 100%);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .detail-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(251, 247, 239, 0.9) 100%);
+            padding: 50px 40px;
+            border-radius: 3px;
+            text-align: center;
+            box-shadow: 0 10px 35px rgba(139, 24, 24, 0.1);
+            border: 2px solid rgba(139, 24, 24, 0.12);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .detail-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 24, 24, 0.15), transparent);
+            transition: left 0.6s ease;
+            z-index: 1;
+        }
+
+        .detail-card:hover::before {
+            left: 100%;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(139, 24, 24, 0.2);
+            border-color: var(--primary-red);
+        }
+
+        .detail-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: pulse-subtle 2.5s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+        }
+
+        .detail-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .detail-content {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary-red);
+            font-weight: 600;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .detail-content p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        /* ========== DRESS CODE ========== */
+        .dress-code {
+            background: linear-gradient(180deg, rgba(245, 241, 232, 0.2) 0%, rgba(232, 220, 200, 0.3) 100%);
+        }
+
+        .dress-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .dress-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(251, 247, 239, 0.85) 100%);
+            padding: 40px 30px;
+            border-radius: 3px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(92, 64, 51, 0.1);
+            border: 2px solid rgba(212, 175, 55, 0.12);
+            transition: all 0.4s ease;
+        }
+
+        .dress-item:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-8px) rotate(-1deg);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .dress-emoji {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: pulse-subtle 2.8s ease-in-out infinite;
+        }
+
+        .dress-item h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-red);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .dress-item p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* ========== GALLERY ========== */
+        .gallery {
+            background: linear-gradient(180deg, rgba(232, 220, 200, 0.2) 0%, rgba(245, 241, 232, 0.3) 100%);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 60px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, var(--accent-teal) 0%, var(--warm-tan) 100%);
+            border: 8px solid var(--primary-cream);
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(92, 64, 51, 0.2);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: float-gentle 6s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .gallery-item:nth-child(even) {
+            animation: float-gentle 7s ease-in-out infinite reverse;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.08) rotate(0deg);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.3);
+        }
+
+        /* ========== RSVP SECTION ========== */
+        .rsvp-section {
+            background: linear-gradient(135deg, rgba(245, 241, 232, 0.5) 0%, rgba(232, 220, 200, 0.4) 100%);
+            text-align: center;
+        }
+
+        .rsvp-box {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(251, 247, 239, 0.95) 100%);
+            padding: 60px 50px;
+            border-radius: 3px;
+            max-width: 550px;
+            margin: 60px auto 0;
+            box-shadow: 0 20px 60px rgba(139, 24, 24, 0.18);
+            border: 3px solid var(--primary-red);
+            position: relative;
+        }
+
+        .rsvp-box::before {
+            content: '◆';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--primary-red);
+            font-size: 2rem;
+        }
+
+        .rsvp-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .rsvp-box p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .rsvp-button {
+            display: inline-block;
+            padding: 16px 50px;
+            background: linear-gradient(135deg, var(--primary-red), var(--accent-burgundy));
+            color: var(--cream-white);
+            border: none;
+            border-radius: 2px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 8px 20px rgba(139, 24, 24, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rsvp-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .rsvp-button:hover::before {
+            left: 100%;
+        }
+
+        .rsvp-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(139, 24, 24, 0.4);
+        }
+
+        .rsvp-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* ========== MAP SECTION ========== */
+        .map-section {
+            background: linear-gradient(180deg, rgba(232, 220, 200, 0.3) 0%, rgba(245, 241, 232, 0.2) 100%);
+        }
+
+        .map-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 450px;
+            border-radius: 3px;
+            box-shadow: 0 15px 50px rgba(139, 24, 24, 0.2);
+            border: 4px solid var(--primary-red);
+            background: linear-gradient(135deg, var(--accent-burgundy), var(--warm-gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-pin {
+            animation: float-gentle 2s ease-in-out infinite;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .location-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .location-info p {
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .location-info strong {
+            color: var(--primary-red);
+            font-weight: 600;
+        }
+
+        .directions-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 35px;
+            background: linear-gradient(135deg, var(--primary-red), var(--accent-burgundy));
+            color: white;
+            border-radius: 2px;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(139, 24, 24, 0.28);
+        }
+
+        .directions-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(139, 24, 24, 0.35);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: linear-gradient(135deg, var(--dark-brown), #5C4033);
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 3px solid var(--accent-gold);
+            color: var(--primary-cream);
+            position: relative;
+            z-index: 5;
+        }
+
+        footer p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        footer .couple-names {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+            margin: 20px 0;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        footer .wedding-date {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .footer-ornament {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+            font-size: 1.3rem;
+            opacity: 0.7;
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .envelope-wrapper {
+                max-width: 350px;
+                height: 260px;
+            }
+
+            .envelope-front {
+                padding: 30px 25px;
+            }
+
+            .envelope-text h2 {
+                font-size: 1.8rem;
+            }
+
+            .letter-card {
+                padding: 35px 25px;
+            }
+
+            .letter-header h1 {
+                font-size: 2rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 60px;
+                margin-right: 0;
+                width: calc(100% - 80px);
+                text-align: left;
+                padding-left: 30px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 60px;
+            }
+
+            .timeline-dot {
+                left: 14px;
+            }
+
+            .map-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .map-frame {
+                height: 350px;
+            }
+
+            .details-grid,
+            .dress-items,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rsvp-box {
+                padding: 40px 30px;
+                margin-top: 40px;
+            }
+
+            section {
+                padding: 70px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .envelope-wrapper {
+                max-width: 280px;
+                height: 200px;
+            }
+
+            .envelope-front {
+                padding: 20px 15px;
+            }
+
+            .envelope-text h2 {
+                font-size: 1.4rem;
+            }
+
+            .envelope-seal {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .letter-card {
+                padding: 25px 15px;
+                width: 95%;
+                left: 2.5%;
+            }
+
+            .letter-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .letter-content {
+                font-size: 0.95rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .detail-card,
+            .dress-item {
+                padding: 25px 15px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .rsvp-box {
+                padding: 30px 20px;
+                border-width: 2px;
+            }
+
+            .rsvp-button {
+                padding: 12px 35px;
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 50px 10px;
+            }
+
+            .ornament {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* ========== ACCESSIBILITY ========== */
+        button:focus,
+        a:focus {
+            outline: 3px solid var(--accent-gold);
+            outline-offset: 2px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Smooth scroll for sections */
+        section {
+            opacity: 0;
+            animation: slide-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        section:nth-child(1) { animation-delay: 0s; }
+        section:nth-child(2) { animation-delay: 0.1s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.3s; }
+        section:nth-child(5) { animation-delay: 0.4s; }
+        section:nth-child(6) { animation-delay: 0.5s; }
+        section:nth-child(7) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Ornamental decorations -->
+    <div class="ornament ornament-1">🏛️</div>
+    <div class="ornament ornament-2">🌸</div>
+    <div class="ornament ornament-3">🏛️</div>
+    <div class="ornament ornament-4">🌸</div>
+
+    <!-- HERO SECTION - Elegant Envelope -->
+    <section class="hero" id="heroSection">
+        <div class="envelope-wrapper">
+            <div class="envelope-card" id="envelopeCard">
+                <!-- Envelope Front -->
+                <div class="envelope-front">
+                    <div class="envelope-seal">💌</div>
+                    <div class="envelope-text">
+                        <h2>THIỆP MỜI</h2>
+                        <p>Đám Cưới Truyền Thống</p>
+                    </div>
+                </div>
+
+                <!-- Envelope Flap -->
+                <div class="envelope-flap">
+                    <span>Opens for your love</span>
+                </div>
+
+                <!-- Letter Card -->
+                <div class="letter-card">
+                    <div class="letter-header">
+                        <h1>Bùi Thùy Dương<br>& Trần Minh Hiếu</h1>
+                        <p>31 Tháng Một | 2026</p>
+                    </div>
+                    <div class="letter-content">
+                        <p>"Tình yêu không phải là sự tìm kiếm nửa kia để trở thành hoàn hảo, mà là sự gặp gỡ với ai đó làm cho bạn muốn trở thành phiên bản tốt nhất của chính mình."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-hint">
+                <span>Nhấn để mở thiệp</span>
+                <span class="scroll-arrow">👇</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR STORY SECTION -->
+    <section class="our-story" id="ourStory">
+        <div class="container">
+            <h2 class="section-title">Câu Chuyện Của Chúng Tôi</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Khoảnh Khắc Đầu Tiên</h3>
+                        <p>Giữa những dòng người Hà Nội, chúng tôi gặp nhau bằng cách chẳng mong chờ. Một cái nhìn, một lời nói, một nụ cười—tất cả những điều đơn giản lại trở nên đặc biệt.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Tình Yêu Bắt Đầu</h3>
+                        <p>Những ngày qua sẽ để lại dấu ấn sâu đậm. Từng bước đi cùng nhau, chúng tôi nhận ra rằng đây không chỉ là tình yêu, mà còn là định mệnh.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Lời Hứa Suốt Đời</h3>
+                        <p>Một chiều tháng năm, dưới ánh nắng Hà Nội, anh quỳ gối và hỏi—không phải là một câu hỏi, mà là một lời hứa yêu thương suốt đời.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Ngày Trọng Đại</h3>
+                        <p>Hôm nay, ngày 31 tháng Một, chúng tôi sẽ trở thành vợ chồng. Chúng tôi sẽ đứng trước gia đình, bạn bè và những người thân yêu nhất, để tuyên thệ tình yêu vĩnh cửu.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WEDDING DETAILS SECTION -->
+    <section class="wedding-details" id="weddingDetails">
+        <div class="container">
+            <h2 class="section-title">Chi Tiết Đám Cưới</h2>
+            
+            <div class="details-grid">
+                <div class="detail-card">
+                    <span class="detail-icon">📅</span>
+                    <div class="detail-label">Ngày Trọng Đại</div>
+                    <div class="detail-content">31 Tháng Một</div>
+                    <p>Năm 2026</p>
+                </div>
+
+                <div class="detail-card">
+                    <span class="detail-icon">🕐</span>
+                    <div class="detail-label">Thời Gian</div>
+                    <div class="detail-content">18:00 - 22:00</div>
+                    <p>Lễ cưới & Tiệc cưới</p>
+                </div>
+
+                <div class="detail-card">
+                    <span class="detail-icon">📍</span>
+                    <div class="detail-label">Địa Điểm</div>
+                    <div class="detail-content">Hà Đông</div>
+                    <p>Hà Nội, Việt Nam</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DRESS CODE SECTION -->
+    <section class="dress-code" id="dressCode">
+        <div class="container">
+            <h2 class="section-title">Trang Phục Dự Tiệc</h2>
+            
+            <div class="dress-items">
+                <div class="dress-item">
+                    <div class="dress-emoji">👰‍♀️</div>
+                    <h4>Cô Dâu</h4>
+                    <p>Váy cưới trắng thanh khiết hoặc áo dài truyền thống Việt Nam, trang điểm tinh tế theo phong cách cổ điển.</p>
+                </div>
+
+                <div class="dress-item">
+                    <div class="dress-emoji">🤵</div>
+                    <h4>Chú Rể</h4>
+                    <p>Bộ vest tối màu sang trọng, áo dài truyền thống, hoặc smoking cổ điển kết hợp hoa cài ngực lịch sự.</p>
+                </div>
+
+                <div class="dress-item">
+                    <div class="dress-emoji">✨</div>
+                    <h4>Khách Mời</h4>
+                    <p>Trang phục lịch sự và trang nhã. Nữ: áo dài truyền thống hoặc đầm sang trọng. Nam: áo vest hoặc bộ suit tối màu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Những Khoảnh Khắc</h2>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">📸</div>
+                <div class="gallery-item">💑</div>
+                <div class="gallery-item">💐</div>
+                <div class="gallery-item">✨</div>
+                <div class="gallery-item">💕</div>
+                <div class="gallery-item">🎊</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP SECTION -->
+    <section class="rsvp-section" id="rsvp">
+        <div class="container">
+            <h2 class="section-title">Xác Nhận Tham Dự</h2>
+            
+            <div class="rsvp-box">
+                <h3>Vui Lòng Xác Nhận</h3>
+                <p>Chúng tôi rất vinh dự khi nhận được sự tham gia của quý vị trong ngày trọng đại này. Vui lòng xác nhận sự tham dự trước ngày 20 tháng 1 năm 2026.</p>
+                <button class="rsvp-button" onclick="handleRSVP()">
+                    <span class="sr-only">Xác nhận tham dự</span>
+                    Xác Nhận Tham Dự
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP SECTION -->
+    <section class="map-section" id="map">
+        <div class="container">
+            <h2 class="section-title">Địa Điểm Tổ Chức</h2>
+            
+            <div class="map-container">
+                <div class="map-frame">
+                    <span class="map-pin">📍</span>
+                </div>
+
+                <div class="location-info">
+                    <h3>Nhà Hát Lớn Hà Nội</h3>
+                    <p><strong>Địa chỉ:</strong><br>1 Tràng Tiền, Hoàn Kiếm, Hà Nội 10000</p>
+                    <p><strong>Ngày:</strong> 31 Tháng Một Năm 2026</p>
+                    <p><strong>Thời gian:</strong> 18:00 - 22:00</p>
+                    <p>Chúng tôi chân thành chờ đón quý vị trong không gian lịch sử và quyến rũ của Nhà Hát Lớn Hà Nội—nơi chứng kiến tình yêu của chúng tôi bắt đầu một chương mới.</p>
+                    <button class="directions-btn" onclick="alert('Vui lòng sử dụng Google Maps hoặc ứng dụng chỉ đường yêu thích để tìm hướng đi.')">
+                        🗺️ Xem Hướng Dẫn
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Với Tình Yêu Từ Trái Tim</p>
+        <div class="couple-names">Bùi Thùy Dương & Trần Minh Hiếu</div>
+        <div class="wedding-date">31 Tháng Một 2026 | Hà Nội</div>
+        <div class="footer-ornament">
+            <span>🏛️</span>
+            <span>💕</span>
+            <span>🏛️</span>
+        </div>
+    </footer>
+
+    <script>
+        // Envelope interaction
+        const envelopeCard = document.getElementById('envelopeCard');
+        envelopeCard.addEventListener('click', function() {
+            this.classList.toggle('opened');
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.animation = 'slide-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe cards and items
+        document.querySelectorAll('.detail-card, .dress-item, .gallery-item, .timeline-content').forEach(element => {
+            element.style.opacity = '0';
+            observer.observe(element);
+        });
+
+        // RSVP handler
+        function handleRSVP() {
+            alert('Cảm ơn bạn đã xác nhận! 💕\n\nVui lòng liên hệ chúng tôi qua:\nEmail: love@example.com\nPhone: +84 9XX XXX XXX');
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Hide scroll hint when scrolling
+        window.addEventListener('scroll', () => {
+            const scrollIndicator = document.querySelector('.scroll-hint');
+            if (window.scrollY > 100) {
+                scrollIndicator.style.display = 'none';
+            } else {
+                scrollIndicator.style.display = 'flex';
+            }
+        });
+    </script>
+</body>
+</html>
